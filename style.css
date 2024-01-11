@@ -1,0 +1,51 @@
+#block1 {
+    background-color: #e6abef;
+    padding: 2px 700px 2px 700px; 
+    font-family: 'Times New Roman', Times, serif, Helvetica, sans-serif;
+   
+}
+#block1 #privKey {
+    color: red;
+    font-weight: bold;
+}
+#block2 {
+    background-color: #93deec; 
+    padding: 2px 700px 2px 700px; 
+    font-family: 'Times New Roman', Times, serif, Helvetica, sans-serif;
+    
+}
+
+#block3 {
+    background-color: #e6eb83; 
+    padding: 2px 700px 2px 700px;
+    font-family: 'Times New Roman', Times, serif, Helvetica, sans-serif;
+   
+}
+#block4 {
+    background-color: #81ee68; 
+    padding: 2px 700px 2px 700px;
+    border: 1px dotted grey;
+    font-family: 'Times New Roman', Times, serif, Helvetica, sans-serif;
+   
+}
+#block5 {
+    background-color: #030306; 
+    padding: 2px 700px 1px 700px;
+    font-family: 'Times New Roman', Times, serif, Helvetica, sans-serif;
+    color: white;
+
+}
+
+#privKey {
+    font-family: Georgia, 'Times New Roman', Times, serif, Helvetica, sans-serif;
+    
+}
+#pubKey {
+    font-family: Georgia, 'Times New Roman', Times, serif, Helvetica, sans-serif;
+
+}
+
+#address {
+    font-family: Georgia, 'Times New Roman', Times, serif, Helvetica, sans-serif;
+    
+}

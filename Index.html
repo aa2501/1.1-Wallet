@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bitcoin Wallet</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="https://unpkg.com/bsv@1.5.3/bsv.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  </head>
+  <body>
+    <div id="block1">
+      <h1>Private Key</h1>
+      <p id="privKey"></p>
+    </div>
+    <div id="block2">
+      <h1>Public Key</h1>
+      <p id="pubKey"></p>
+    </div>
+    <div id="block3">
+      <h1>Address</h1>
+      <p id="address"></p>
+    </div>
+    <div id="block4">
+      <h1> QR code </h1>
+      <p id="qrcode"></p>
+    </div>
+    <div id="block5">
+      <h1>Bitcoin Price</h1>
+      <p id="bitcoinPrice"></p>
+    </div>
+
+    <script>
+      function generatePrivateKey() {
+        return bsv.PrivateKey.fromRandom();
+      }
+
+      var privateKey = generatePrivateKey();
+      var pubKey = bsv.PublicKey.fromPrivateKey(privateKey);
+      var address = bsv.Address.fromPublicKey(pubKey);
+      
+      function fetchBitcoinPrice() {
+      $.get("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd", function(data) {
+        var bitcoinPrice = data.bitcoin.usd;
+        document.getElementById("bitcoinPrice").innerHTML = '$' + bitcoinPrice.toFixed(2);
+      });
+    }
+
+      var p = document.querySelector("#privKey");
+      p.innerHTML = "CONFIDENTIAL";
+
+      var y = document.querySelector("#pubKey");
+      y.innerHTML = pubKey.toString();
+
+      var z = document.querySelector("#address");
+      z.innerHTML = address.toString();
+
+      var addressCode = "bitcoinsv:" + address;
+      new QRCode(document.getElementById("qrcode"), addressCode);
+      
+      fetchBitcoinPrice();
+      
+    </script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="layout.css">
+  </body>
+</html>
+
+
